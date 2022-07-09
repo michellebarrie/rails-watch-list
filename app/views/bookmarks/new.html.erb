@@ -1,0 +1,9 @@
+<%pelis = []%>
+<% pelis2= Movie.all %>
+<%pelis2.each do |p| pelis << p.title end%>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment, placeholder: 'Comment' %>
+  <%= f.input :movie, :collection => pelis %>
+  <%= f.submit class: 'btn btn-flat' %>
+<% end %>
